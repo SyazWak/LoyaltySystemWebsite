@@ -76,51 +76,20 @@
                         <h3><span class="gradient-text">📱 SW Loyalty</span> <br>The Member Experience</h3>
                         <p>A modern, cross-platform loyalty app built with <strong>Flutter</strong>,
                             <strong>Supabase</strong>, and <strong>Firebase</strong>. Members enjoy a premium digital
-                            membership card experience with personalized greetings, real-time point tracking, and
-                            seamless in-store redemption through secure QR codes.
+                            membership experience with personalized dashboards, real-time point tracking, and
+                            secure QR-based in-store redemption.
                         </p>
 
-                        <p class="text-muted"><strong>Core Features</strong></p>
+                        <p class="text-muted"><strong>Key Features & Architecture</strong></p>
                         <ul class="info-list">
-                            <li><strong>Personalized Home Dashboard</strong> — Dynamic greeting with user's name,
-                                prominent points card with tier badge (Bronze/Silver/Gold/Platinum), and a full-width
-                                carousel showcasing active campaigns, news, and promotions.</li>
-                            <li><strong>QR-Based Point Earning</strong> — Generate a secure 5-minute QR code at checkout
-                                for staff to scan. Real-time validation ensures points are awarded instantly, with
-                                automatic refresh of balance and transaction history.</li>
-                            <li><strong>Smart Rewards Catalog</strong> — Browse all available rewards with clear point
-                                requirements. Rewards dynamically show as "unlocked" with vibrant gradients when you
-                                have enough points, or "locked" with helpful hints on how many more points you need.
-                            </li>
-                            <li><strong>Secure In-Store Redemption</strong> — Select a reward, confirm redemption, and
-                                receive a unique QR code with a secure token. Staff scan to verify and complete the
-                                redemption, with immediate point deduction and receipt confirmation.</li>
-                            <li><strong>Comprehensive Transaction History</strong> — Timeline view of all point
-                                activities with color-coded entries (green for earned, orange for redeemed), summary
-                                cards showing total earned/redeemed, and filters to view specific transaction types.
-                            </li>
-                            <li><strong>News & Promotions Hub</strong> — Stay updated with campaign announcements,
-                                limited-time offers, and program updates. Unread count badge on tab, with articles
-                                marked as read when opened.</li>
-                            <li><strong>Profile Management</strong> — View and edit personal information, see membership
-                                tier with visual badges, check "Member Since" date, review complete transaction history,
-                                and securely sign out.</li>
-                            <li><strong>Push Notifications</strong> — Firebase Cloud Messaging integration for real-time
-                                alerts about earned points, tier upgrades, expiring rewards, and new promotions.</li>
-                        </ul>
-
-                        <p class="text-muted"><strong>User Experience Highlights</strong></p>
-                        <ul class="info-list">
-                            <li><strong>Material 3 Design</strong> — Modern Flutter UI with gradient backgrounds, smooth
-                                animations, rounded cards, subtle shadows, and responsive layouts optimized for real
-                                mobile usage.</li>
-                            <li><strong>Tier Progression Visuals</strong> — Color-coded badges and cards that
-                                dynamically reflect your membership status, creating a premium "digital membership card"
-                                feel.</li>
-                            <li><strong>Graceful State Handling</strong> — Built-in loading states, empty states, and
-                                friendly error messages throughout the app for a polished user experience.</li>
+                            <li><strong>Dynamic UI & UX</strong> — Material 3 design with responsive layouts,
+                                personalized greetings, and visual tier progression (Bronze to Platinum).</li>
+                            <li><strong>Real-Time Earning & Redemption</strong> — Secure, time-limited QR codes
+                                validated server-side for instant point updates and fraud prevention.</li>
+                            <li><strong>Engagement Hub</strong> — Smart rewards catalog, filterable transaction history,
+                                and Firebase-powered push notifications for active campaigns.</li>
                             <li><strong>Cross-Platform Ready</strong> — Compiled for iOS, Android, web, and desktop from
-                                a single Flutter codebase.</li>
+                                a single cohesive Flutter codebase.</li>
                         </ul>
 
                         <div class="feature-pills">
@@ -193,50 +162,20 @@
                     <div class="product-info">
                         <h3><span class="gradient-text-alt">💼 SW Loyalty Staff</span> <br>The Operational Engine</h3>
                         <p>A focused <strong>Flutter</strong> staff portal designed specifically for brick-and-mortar
-                            shops. This "Shopkeeper Portal" gives front-line staff a clean, secure interface to award
-                            loyalty points, redeem rewards via QR scanning, and review real-time transaction history—all
-                            backed by <strong>Supabase</strong> for authentication and data integrity.</p>
+                            operations. Provides front-line staff a secure, clean interface to award points and process
+                            redemptions via QR scanning, backed by <strong>Supabase</strong> for robust data integrity.
+                        </p>
 
-                        <p class="text-muted"><strong>Core Capabilities</strong></p>
+                        <p class="text-muted"><strong>Key Features & Architecture</strong></p>
                         <ul class="info-list">
-                            <li><strong>Secure Staff Authentication</strong> — Email and password login via Supabase
-                                Auth with robust error handling and inline feedback. Only authorized staff can access
-                                the portal.</li>
-                            <li><strong>Modern Dashboard</strong> — Personalized greeting using staff email,
-                                gradient-based card layout, and three primary quick actions: Award Points, Redeem
-                                Reward, and Transaction History.</li>
-                            <li><strong>Award Points Flow</strong> — Camera-based QR scanner using mobile_scanner. Scan
-                                customer's earn code, validate token on server, prompt for point amount (with helpful
-                                guidance like "Typical amounts: 10, 20, 50"), and award points instantly via Supabase
-                                RPC function. Handles expired codes, daily limits, and invalid tokens with clear error
-                                messages.</li>
-                            <li><strong>Redeem Rewards Flow</strong> — Dedicated QR scanner for redemption codes.
-                                Fetches reward details and token status from Supabase, validates token (checks for
-                                expired, already-redeemed, or cancelled status), displays rich confirmation dialog with
-                                reward title and point cost, and finalizes redemption via server RPC with loading
-                                indicator and success confirmation.</li>
-                            <li><strong>Fraud Prevention Built-In</strong> — Real-time server-side validation for every
-                                scan, token expiration enforcement, one-time use verification, and daily earning limits
-                                to prevent abuse.</li>
-                            <li><strong>Transaction History & Analytics</strong> — Summary header showing total
-                                transactions, earned vs. redeemed split, and detailed card-based list with customer
-                                email, reward title, point amount (+/-), and human-friendly timestamps. Pull-to-refresh
-                                for latest data.</li>
-                        </ul>
-
-                        <p class="text-muted"><strong>Technical Details</strong></p>
-                        <ul class="info-list">
-                            <li><strong>High-Performance Scanning</strong> — Optimized for challenging lighting and
-                                fast-paced checkout flows. Auto-restart scanner after each operation for rapid
-                                processing of multiple customers.</li>
-                            <li><strong>Server-Side Business Logic</strong> — Sensitive operations encapsulated in
-                                Supabase RPC functions (redeem_earn_qr, redeem_redemption_token) to prevent client-side
-                                manipulation.</li>
-                            <li><strong>Staff-Specific Filtering</strong> — Transaction history can be filtered by
-                                staff_id so employees see their own activity for accountability.</li>
-                            <li><strong>Comprehensive Error Handling</strong> — Friendly, staff-oriented error messages
-                                instead of raw technical errors. Loading states with semi-transparent overlays to
-                                prevent duplicate scans.</li>
+                            <li><strong>High-Performance Scanning</strong> — Optimized mobile scanner for rapid QR
+                                processing in fast-paced retail checkout flows with instant validation.</li>
+                            <li><strong>Secure Operational Flows</strong> — Role-based access control and Supabase RPC
+                                functions enforce business logic and fraud prevention server-side.</li>
+                            <li><strong>Real-Time Auditing</strong> — Filterable transaction history per staff member
+                                ensures accountability and transparent operational tracking.</li>
+                            <li><strong>Resilient State Management</strong> — Graceful error handling for expired
+                                tokens, daily limits, and invalid scans with clear staff-oriented feedback.</li>
                         </ul>
 
                         <div class="feature-pills">
@@ -312,8 +251,7 @@
                         <p>A sophisticated web-based administration panel built with <strong>Next.js</strong>,
                             <strong>React</strong>, <strong>TypeScript</strong>, and <strong>Supabase</strong>. This
                             central command center gives marketing and operations teams complete control over rewards,
-                            users, transactions, news updates, and operational reporting in one cohesive, data-driven
-                            interface.
+                            users, transactions, and analytics in a cohesive, data-driven interface.
                         </p>
 
                         <div class="product-visual">
@@ -351,85 +289,16 @@
                             </div>
                         </div>
 
-                        <p class="text-muted"><strong>Dashboard & Navigation</strong></p>
+                        <p class="text-muted"><strong>Key Features & Architecture</strong></p>
                         <ul class="info-list">
-                            <li><strong>High-Level Overview</strong> — Dashboard "Command Center" displays total points
-                                in circulation, active users count, active rewards vs. total created, and active news
-                                items at a glance.</li>
-                            <li><strong>Rich Navigation</strong> — Fixed gradient sidebar with module navigation
-                                (Dashboard, Rewards, News, Users, Staff, Transactions, Data Export, Settings), active
-                                route highlighting with gradients and animations, and quick access footer with logout
-                                confirmation.</li>
-                            <li><strong>Admin-Only Access Control</strong> — Supabase Auth login with verification that
-                                user exists in staff table, is active, and has admin role. Protected routes ensure only
-                                authorized admins can access management tools.</li>
-                        </ul>
-
-                        <p class="text-muted"><strong>Rewards Management</strong></p>
-                        <ul class="info-list">
-                            <li><strong>Full CRUD Interface</strong> — Create, edit, and soft-delete (deactivate)
-                                rewards. View all rewards with title, description, required points, minimum tier, and
-                                status.</li>
-                            <li><strong>Tier-Based Access Control</strong> — Set minimum role requirements
-                                (Bronze/Silver/Gold/Platinum) for each reward with color-coded badges for easy
-                                identification.</li>
-                            <li><strong>Status Management</strong> — Toggle rewards between Active/Inactive with
-                                confirmation dialogs explaining impact on users.</li>
-                            <li><strong>Advanced Filtering</strong> — Text search across titles and descriptions,
-                                sortable columns (name, points, tier, creation date), and quick status filters.</li>
-                            <li><strong>Reward Analytics</strong> — Summary cards showing total rewards, active/inactive
-                                split, total redemptions, unique redeemers, and total points redeemed.</li>
-                        </ul>
-
-                        <p class="text-muted"><strong>Transaction Analytics</strong></p>
-                        <ul class="info-list">
-                            <li><strong>Comprehensive Transaction Table</strong> — Every point movement tracked with
-                                type (Earn/Redeem), user details with tier badges, associated reward, responsible staff
-                                member, color-coded point values, and exact timestamps.</li>
-                            <li><strong>Dynamic Filters</strong> — Search across users/rewards/staff, type filter (earn
-                                only, redeem only, or all), date range selection (7/30/90 days or all time), and result
-                                limit controls (50-500 rows).</li>
-                            <li><strong>High-Level KPIs</strong> — Total transactions with earn/redeem split, total
-                                points earned and redeemed, net points flow calculation, unique user count, and average
-                                points per transaction.</li>
-                            <li><strong>Daily Activity Dashboard</strong> — 7-day overview showing points earned, points
-                                redeemed, net point change, and transaction count per day for spotting trends and
-                                anomalies.</li>
-                            <li><strong>CSV Export</strong> — One-click export of filtered data for offline analysis,
-                                finance reporting, or BI tool integration.</li>
-                        </ul>
-
-                        <p class="text-muted"><strong>User Management & Insights</strong></p>
-                        <ul class="info-list">
-                            <li><strong>Rich User Profiles</strong> — View name, email, tier with icons, current points,
-                                lifetime earned/redeemed, redemption count, transaction count, and calculated engagement
-                                score for each member.</li>
-                            <li><strong>Smart Engagement Scoring</strong> — Automated 0-100 score based on recency,
-                                frequency, and redemption behavior. Color-coded progress bars (green/yellow/red)
-                                identify top advocates, engaged users, and at-risk members.</li>
-                            <li><strong>Segmented Statistics</strong> — Cards showing total users, new users this month,
-                                active user count with engagement rate, total points pool, average points per user, and
-                                lifetime program value.</li>
-                            <li><strong>Tier Distribution Analysis</strong> — Visual breakdown of user distribution
-                                across Bronze/Silver/Gold/Platinum tiers with percentages—ideal for measuring
-                                progression strategies.</li>
-                            <li><strong>Advanced User Filters</strong> — Search by name/email/role, filter by tier,
-                                filter by join date period, sort by multiple criteria (name, balance, lifetime metrics,
-                                engagement, join date).</li>
-                            <li><strong>CRM Export</strong> — Export filtered users including engagement metrics to CSV
-                                for CRM enrichment and campaign planning.</li>
-                        </ul>
-
-                        <p class="text-muted"><strong>Additional Modules</strong></p>
-                        <ul class="info-list">
-                            <li><strong>News & Updates Management</strong> — Create and manage announcements, campaigns,
-                                maintenance notices, and promotional content shown to end users.</li>
-                            <li><strong>Staff Management</strong> — View and manage staff users, control roles and
-                                active/inactive status for back-office access.</li>
-                            <li><strong>Data Export Hub</strong> — Centralized location for exporting all key datasets
-                                (users, transactions, rewards) to CSV for reporting and backups.</li>
-                            <li><strong>System Settings</strong> — Configuration area for system-wide settings and
-                                customization options.</li>
+                            <li><strong>Comprehensive Data Management</strong> — Full CRUD capabilities for rewards,
+                                tier-based access control, and dynamic program configuration.</li>
+                            <li><strong>Advanced Analytics & CRM</strong> — Smart engagement scoring, tier distribution
+                                analysis, and detailed transaction tracking with CSV export.</li>
+                            <li><strong>Secure Admin Infrastructure</strong> — Protected routes and strict Supabase Auth
+                                rules ensure only authorized staff can access management tools.</li>
+                            <li><strong>Modern Web Stack</strong> — Built on Next.js App Router for optimized
+                                performance, featuring a responsive, state-aware UI with real-time KPI dashboards.</li>
                         </ul>
 
                         <div class="feature-pills">
@@ -513,47 +382,39 @@
                     <img src="https://www.vectorlogo.zone/logos/flutterio/flutterio-icon.svg" alt="Flutter"
                         class="tech-logo">
                     <span>Flutter + Dart</span>
-                    <small>Mobile Apps</small>
                 </div>
                 <div class="tech-item">
                     <img src="https://www.vectorlogo.zone/logos/nextjs/nextjs-icon.svg" alt="Next.js" class="tech-logo">
                     <span>Next.js 16</span>
-                    <small>Admin Dashboard</small>
                 </div>
                 <div class="tech-item">
                     <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" alt="React" class="tech-logo">
                     <span>React</span>
-                    <small>UI Components</small>
                 </div>
                 <div class="tech-item">
                     <img src="https://www.vectorlogo.zone/logos/supabase/supabase-icon.svg" alt="Supabase"
                         class="tech-logo">
                     <span>Supabase</span>
-                    <small>Backend & Auth</small>
                 </div>
                 <div class="tech-item">
                     <img src="https://www.vectorlogo.zone/logos/postgresql/postgresql-icon.svg" alt="Postgres"
                         class="tech-logo">
                     <span>PostgreSQL</span>
-                    <small>Database</small>
                 </div>
                 <div class="tech-item">
                     <img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" alt="Firebase"
                         class="tech-logo">
                     <span>Firebase</span>
-                    <small>Push Notifications</small>
                 </div>
                 <div class="tech-item">
                     <img src="https://www.vectorlogo.zone/logos/typescriptlang/typescriptlang-icon.svg" alt="TypeScript"
                         class="tech-logo">
                     <span>TypeScript</span>
-                    <small>Type Safety</small>
                 </div>
                 <div class="tech-item">
                     <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS"
                         class="tech-logo">
                     <span>Tailwind CSS</span>
-                    <small>Styling</small>
                 </div>
             </div>
         </div>
